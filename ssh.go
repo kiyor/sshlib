@@ -134,7 +134,7 @@ func (manager *SshManager) init() {
 
 		if err == nil {
 			for _, v := range k.keys {
-				Logger.Notice("use key", v)
+				Logger.Notice("use key", v.PublicKey().Type(), manager.Key)
 				manager.clientConfig.Auth = append(manager.clientConfig.Auth, ssh.PublicKeys(v))
 			}
 		} else {
